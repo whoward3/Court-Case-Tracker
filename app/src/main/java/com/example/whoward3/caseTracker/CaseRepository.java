@@ -84,7 +84,7 @@ public class CaseRepository {
 
         @Override
         protected Void doInBackground(Void... cases){
-            caseDao.deleteAllExpenses();
+            caseDao.deleteAllCases();
             return null;
         }
     }

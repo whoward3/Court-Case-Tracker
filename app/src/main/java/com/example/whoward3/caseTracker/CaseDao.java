@@ -22,7 +22,7 @@ public interface CaseDao {
     void delete(Case aCase);
 
     @Query("DELETE FROM `case_table`")
-    void deleteAllExpenses();
+    void deleteAllCases();
 
     @Query("SELECT * FROM `case_table`")
     LiveData<List<Case>> getAllCases();
