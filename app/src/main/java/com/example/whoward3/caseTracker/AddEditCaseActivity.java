@@ -23,7 +23,10 @@ public class AddEditCaseActivity extends AppCompatActivity {
     private EditText editTextPerson;
     private EditText editTextTribe;
     private EditText editTextCaseType;
+    private EditText editTextCaseSubtype;
+    private EditText editTextEventCount;
     private EditText editTextOpenDate;
+    private EditText editTextCloseDate;
     private EditText editTextCaseNotes;
 
     @Override
@@ -31,21 +34,27 @@ public class AddEditCaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_case);
 
-        editTextTribe = findViewById(R.id.edit_text_tribe);
         editTextPerson = findViewById(R.id.edit_text_person);
-        editTextCaseNotes = findViewById(R.id.edit_text_caseNotes);
+        editTextTribe = findViewById(R.id.edit_text_tribe);
         editTextCaseType = findViewById(R.id.edit_text_caseType);
+        editTextCaseSubtype = findViewById(R.id.edit_text_caseSubType);
+        editTextEventCount = findViewById(R.id.edit_text_eventCount);
         editTextOpenDate = findViewById(R.id.edit_text_openDate);
+        editTextCloseDate = findViewById(R.id.edit_text_closeDate);
+        editTextCaseNotes = findViewById(R.id.edit_text_caseNotes);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         Intent intent = getIntent();
 
         if(intent.hasExtra(EXTRA_ID)){
             setTitle("Edit Case");
-                      editTextTribe.setText(String.valueOf(intent.getFloatExtra(EXTRA_EVENTCOUNT,1.0F)));                                                //Might cause issue late on :(
-            editTextCaseType.setText(intent.getStringExtra(EXTRA_TRIBE));
-            editTextOpenDate.setText(intent.getStringExtra(EXTRA_OPENDATE));
             editTextPerson.setText(intent.getStringExtra(EXTRA_PERSON));
+            editTextTribe.setText(intent.getStringExtra(EXTRA_TRIBE));
+            editTextCaseType.setText(intent.getStringExtra(EXTRA_TYPE));
+            editTextCaseSubtype.setText(intent.getStringExtra(EXTRA_SUBTYPE));
+            editTextEventCount.setText(String.valueOf(intent.getFloatExtra(EXTRA_EVENTCOUNT,1.0F)));  //Might cause issue late on :(
+            editTextOpenDate.setText(intent.getStringExtra(EXTRA_OPENDATE));
+            editTextCloseDate.setText(intent.getStringExtra(EXTRA_CLOSEDATE));
             editTextCaseNotes.setText(intent.getStringExtra(EXTRA_CASENOTES));
         }else {
             setTitle("Add Case");
@@ -54,22 +63,28 @@ public class AddEditCaseActivity extends AppCompatActivity {
 
     private void saveCase(){
         String person = editTextPerson.getText().toString();
-        String category = editTextCaseType.getText().toString();
-        String date = editTextOpenDate.getText().toString();
-        float amount;
-        try{amount = Float.valueOf(editTextTribe.getText().toString());}catch (Exception a){amount = (float)-9.99;}
+        String tribe = editTextTribe.getText().toString();
+        String caseType = editTextCaseType.getText().toString();
+        String caseSubtype = editTextCaseSubtype.getText().toString();
+        float eventCount;
+        try{eventCount = Float.valueOf(editTextTribe.getText().toString());}catch (Exception a){eventCount = (float)-9.99;}
+        String openDate = editTextOpenDate.getText().toString();
+        String closeDate = editTextCloseDate.getText().toString();
         String note = editTextCaseNotes.getText().toString();
 
-        if(person.trim().isEmpty() || category.trim().isEmpty() || date.trim().isEmpty() || amount < 0.00){
-            Toast.makeText(this,"All expenses must have a person, category, date, and amount.",Toast.LENGTH_LONG).show();
+        if(person.trim().isEmpty() || openDate.trim().isEmpty()){
+            Toast.makeText(this,"All cases must have a person and an openDate",Toast.LENGTH_LONG).show();
             return;
         }
 
         Intent data = new Intent();
         data.putExtra(EXTRA_PERSON, person);
-        data.putExtra(EXTRA_TRIBE, category);
-        data.putExtra(EXTRA_OPENDATE, date);
-        data.putExtra(EXTRA_EVENTCOUNT, amount);
+        data.putExtra(EXTRA_TRIBE, tribe);
+        data.putExtra(EXTRA_TYPE, caseType);
+        data.putExtra(EXTRA_SUBTYPE, caseSubtype);
+        data.putExtra(EXTRA_EVENTCOUNT, eventCount);
+        data.putExtra(EXTRA_OPENDATE, openDate);
+        data.putExtra(EXTRA_CLOSEDATE,closeDate);
         data.putExtra(EXTRA_CASENOTES, note);
 
         Long id = getIntent().getLongExtra(EXTRA_ID,-1);
