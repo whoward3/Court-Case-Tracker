@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddEditCaseActivity">
+
+    <EditText
+        android:id="@+id/edit_text_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_tribe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tribe"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_caseType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Case Type"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edit_text_caseSubType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Case Subtype"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edit_text_eventCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Count of Events"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edit_text_openDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Case Open Date"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_closeDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Case Close Date"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_caseNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Case Notes"
+        android:inputType="textMultiLine"/>
+</LinearLayout>

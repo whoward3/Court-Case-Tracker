@@ -1,4 +1,4 @@
-package com.example.whoward3.expensetracker;
+package com.example.whoward3.caseTracker;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
@@ -8,17 +8,17 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-@Database(entities = {Expense.class},version = 1)
-public abstract class ExpenseDatabase extends RoomDatabase {
+@Database(entities = {Case.class},version = 1)
+public abstract class CaseDatabase extends RoomDatabase {
 
-    private static ExpenseDatabase instance;
+    private static CaseDatabase instance;
 
-    public abstract ExpenseDao expenseDao();
+    public abstract CaseDao expenseDao();
 
-    public static synchronized ExpenseDatabase getInstance (Context context){
+    public static synchronized CaseDatabase getInstance (Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    ExpenseDatabase.class,"expense_database")
+                    CaseDatabase.class,"expense_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -35,16 +35,13 @@ public abstract class ExpenseDatabase extends RoomDatabase {
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void>{
-    private ExpenseDao expenseDao;
-    private PopulateDbAsyncTask(ExpenseDatabase db){
-        expenseDao = db.expenseDao();
+    private CaseDao caseDao;
+    private PopulateDbAsyncTask(CaseDatabase db){
+        caseDao = db.expenseDao();
     }
 
         @Override
         protected Void doInBackground(Void... voids){
-           //expenseDao.insert(new Expense("Name1", "Category1","Date1",(float)0.1,"Note1"));  //For my Testing Purposes
-           //expenseDao.insert(new Expense("Name2", "Category2","Date2",(float)0.1,"Note2"));
-           //expenseDao.insert(new Expense("Name3", "Category3","Date3",(float)0.1,"Note3"));
             return null;
         }
     }

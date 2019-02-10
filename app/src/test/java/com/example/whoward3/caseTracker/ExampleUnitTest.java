@@ -1,4 +1,4 @@
-package com.example.whoward3.expensetracker;
+package com.example.whoward3.caseTracker;
 
 import org.junit.Test;
 

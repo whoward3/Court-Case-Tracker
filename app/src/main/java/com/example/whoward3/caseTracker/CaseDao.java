@@ -1,4 +1,4 @@
-package com.example.whoward3.expensetracker;
+package com.example.whoward3.caseTracker;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -10,20 +10,20 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 @Dao
-public interface ExpenseDao {
+public interface CaseDao {
 
     @Insert
-    void insert(Expense expense);
+    void insert(Case aCase);
 
     @Update
-    void update(Expense expense);
+    void update(Case aCase);
 
     @Delete
-    void delete(Expense expense);
+    void delete(Case aCase);
 
-    @Query("DELETE FROM expense_table")
+    @Query("DELETE FROM `Case`")
     void deleteAllExpenses();
 
-    @Query("SELECT * FROM expense_table")
-    LiveData<List<Expense>> getAllExpenses();
+    @Query("SELECT * FROM `Case`")
+    LiveData<List<Case>> getAllExpenses();
 }

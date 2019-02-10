@@ -12,43 +12,53 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/text_view_date"
+            android:id="@+id/text_view_tribe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Date"
+            android:layout_alignParentRight="true"
+            android:text="Tribe"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/text_view_amount"
+            android:id="@+id/text_view_person"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/text_view_date"
+            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@id/text_view_person"
+            android:layout_toLeftOf="@id/text_view_person"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Amount"
+            android:text="Person"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/text_view_name"
+            android:id="@+id/text_view_caseType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_amount"
-            android:text="Name" />
-        <TextView
-            android:id="@+id/text_view_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_name"
-            android:text="Category" />
-        <TextView
-            android:id="@+id/text_view_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_category"
-            android:text="Note" />
+            android:layout_below="@id/text_view_person"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Case Type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
+        <TextView
+            android:id="@+id/text_view_openDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_tribe"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="304dp"
+            android:layout_marginLeft="304dp"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Open Date"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

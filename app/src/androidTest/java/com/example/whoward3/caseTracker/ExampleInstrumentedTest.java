@@ -1,4 +1,4 @@
-package com.example.whoward3.expensetracker;
+package com.example.whoward3.caseTracker;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
