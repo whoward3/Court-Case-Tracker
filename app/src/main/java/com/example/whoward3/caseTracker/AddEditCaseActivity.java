@@ -15,7 +15,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
     public static final String EXTRA_TRIBE = "com.example.whoward3.caseTracker.EXTRA_TRIBE";
     public static final String EXTRA_TYPE = "com.example.whoward3.caseTracker.EXTRA_TYPE";
     public static final String EXTRA_SUBTYPE = "com.example.whoward3.caseTracker.EXTRA_SUBTYPE";
-    public static final String EXTRA_EVENTCOUNT = "com.example.whoward3.caseTracker.EXTRA_EVENTCOUNT";
     public static final String EXTRA_OPENDATE = "com.example.whoward3.caseTracker.EXTRA_OPENDATE";
     public static final String EXTRA_CLOSEDATE = "com.example.whoward3.caseTracker.EXTRA_CLOSEDATE";
     public static final String EXTRA_CASENOTES = "com.example.whoward3.caseTracker.EXTRA_CASENOTES";
@@ -24,7 +23,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
     private EditText editTextTribe;
     private EditText editTextCaseType;
     private EditText editTextCaseSubtype;
-    private EditText editTextEventCount;
     private EditText editTextOpenDate;
     private EditText editTextCloseDate;
     private EditText editTextCaseNotes;
@@ -38,7 +36,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
         editTextTribe = findViewById(R.id.edit_text_tribe);
         editTextCaseType = findViewById(R.id.edit_text_caseType);
         editTextCaseSubtype = findViewById(R.id.edit_text_caseSubType);
-        editTextEventCount = findViewById(R.id.edit_text_eventCount);
         editTextOpenDate = findViewById(R.id.edit_text_openDate);
         editTextCloseDate = findViewById(R.id.edit_text_closeDate);
         editTextCaseNotes = findViewById(R.id.edit_text_caseNotes);
@@ -52,7 +49,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
             editTextTribe.setText(intent.getStringExtra(EXTRA_TRIBE));
             editTextCaseType.setText(intent.getStringExtra(EXTRA_TYPE));
             editTextCaseSubtype.setText(intent.getStringExtra(EXTRA_SUBTYPE));
-            editTextEventCount.setText(String.valueOf(intent.getFloatExtra(EXTRA_EVENTCOUNT,1.0F)));  //Might cause issue late on :(
             editTextOpenDate.setText(intent.getStringExtra(EXTRA_OPENDATE));
             editTextCloseDate.setText(intent.getStringExtra(EXTRA_CLOSEDATE));
             editTextCaseNotes.setText(intent.getStringExtra(EXTRA_CASENOTES));
@@ -66,8 +62,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
         String tribe = editTextTribe.getText().toString();
         String caseType = editTextCaseType.getText().toString();
         String caseSubtype = editTextCaseSubtype.getText().toString();
-        float eventCount;
-        try{eventCount = Float.valueOf(editTextTribe.getText().toString());}catch (Exception a){eventCount = (float)-9.99;}
         String openDate = editTextOpenDate.getText().toString();
         String closeDate = editTextCloseDate.getText().toString();
         String note = editTextCaseNotes.getText().toString();
@@ -82,7 +76,6 @@ public class AddEditCaseActivity extends AppCompatActivity {
         data.putExtra(EXTRA_TRIBE, tribe);
         data.putExtra(EXTRA_TYPE, caseType);
         data.putExtra(EXTRA_SUBTYPE, caseSubtype);
-        data.putExtra(EXTRA_EVENTCOUNT, eventCount);
         data.putExtra(EXTRA_OPENDATE, openDate);
         data.putExtra(EXTRA_CLOSEDATE,closeDate);
         data.putExtra(EXTRA_CASENOTES, note);

@@ -9,7 +9,6 @@ public class Case {
     private String tribe;
     private String type;
     private String subtype;
-    private Float eventCount;
     private String openDate;
     private String closeDate;
     private String caseNotes;
@@ -33,10 +32,6 @@ public class Case {
         return subtype;
     }
 
-    public Float getEventCount() {
-        return eventCount;
-    }
-
     public String getOpenDate() {
         return openDate;
     }
@@ -53,12 +48,11 @@ public class Case {
         return _id;
     }
 
-    public Case(String person, String tribe, String type, String subtype, Float eventCount, String openDate, String closeDate, String caseNotes) {
+    public Case(String person, String tribe, String type, String subtype, String openDate, String closeDate, String caseNotes) {
         this.person = person;
         this.tribe = tribe;
         this.type = type;
         this.subtype = subtype;
-        this.eventCount = eventCount;
         this.openDate = openDate;
         this.closeDate = closeDate;
         this.caseNotes = caseNotes;

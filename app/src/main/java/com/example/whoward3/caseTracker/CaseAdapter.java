@@ -28,7 +28,6 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseHolder> {
         holder.textViewTribe.setText(currentCase.getTribe());
         holder.textViewCaseType.setText(currentCase.getType());
         holder.textViewOpenDate.setText(currentCase.getOpenDate());
-        //holder.textViewNote.setText(currentCase.getCaseNotes());
     }
 
     @Override
@@ -49,11 +48,7 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseHolder> {
         private TextView textViewPerson;
         private TextView textViewTribe;
         private TextView textViewCaseType;
-        //private TextView textViewCaseSubtype;
-        //private TextView textViewEventCount;
         private TextView textViewOpenDate;
-        //private TextView textViewCloseDate;
-        //private TextView textViewNote;
 
         public CaseHolder(View itemView) {
             super(itemView);
@@ -61,7 +56,6 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseHolder> {
             textViewTribe = itemView.findViewById(R.id.text_view_tribe);
             textViewCaseType = itemView.findViewById(R.id.text_view_caseType);
             textViewOpenDate = itemView.findViewById(R.id.text_view_openDate);
-            //textViewNote = itemView.findViewById(R.id.text_view_note);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

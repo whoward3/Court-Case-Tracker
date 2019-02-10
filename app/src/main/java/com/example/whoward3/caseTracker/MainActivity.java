@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AddEditCaseActivity.class);
                 intent.putExtra(AddEditCaseActivity.EXTRA_ID, aCase.get_id());
                 intent.putExtra(AddEditCaseActivity.EXTRA_PERSON, aCase.getPerson());
-                intent.putExtra(AddEditCaseActivity.EXTRA_EVENTCOUNT, aCase.getEventCount());
                 intent.putExtra(AddEditCaseActivity.EXTRA_TRIBE, aCase.getTribe());
                 intent.putExtra(AddEditCaseActivity.EXTRA_OPENDATE, aCase.getOpenDate());
                 intent.putExtra(AddEditCaseActivity.EXTRA_CASENOTES, aCase.getCaseNotes());
@@ -90,12 +89,11 @@ public class MainActivity extends AppCompatActivity {
             String tribe = data.getStringExtra(AddEditCaseActivity.EXTRA_TRIBE);
             String type = data.getStringExtra(AddEditCaseActivity.EXTRA_TYPE);
             String subtype = data.getStringExtra(AddEditCaseActivity.EXTRA_SUBTYPE);
-            float eventcount = data.getFloatExtra(AddEditCaseActivity.EXTRA_EVENTCOUNT, 1);
             String opendate = data.getStringExtra(AddEditCaseActivity.EXTRA_OPENDATE);
             String closedate = data.getStringExtra(AddEditCaseActivity.EXTRA_CLOSEDATE);
             String casenotes = data.getStringExtra(AddEditCaseActivity.EXTRA_CASENOTES);
 
-            Case aCase = new Case(person,tribe,type,subtype,eventcount,opendate,closedate,casenotes);
+            Case aCase = new Case(person,tribe,type,subtype,opendate,closedate,casenotes);
             caseViewModel.insert(aCase);
 
             Toast.makeText(this,"Case saved",Toast.LENGTH_LONG).show();
@@ -111,12 +109,11 @@ public class MainActivity extends AppCompatActivity {
             String tribe = data.getStringExtra(AddEditCaseActivity.EXTRA_TRIBE);
             String type = data.getStringExtra(AddEditCaseActivity.EXTRA_TYPE);
             String subtype = data.getStringExtra(AddEditCaseActivity.EXTRA_SUBTYPE);
-            float eventcount = data.getFloatExtra(AddEditCaseActivity.EXTRA_EVENTCOUNT, 1);
             String opendate = data.getStringExtra(AddEditCaseActivity.EXTRA_OPENDATE);
             String closedate = data.getStringExtra(AddEditCaseActivity.EXTRA_CLOSEDATE);
             String casenotes = data.getStringExtra(AddEditCaseActivity.EXTRA_CASENOTES);
 
-            Case aCase = new Case(person,tribe,type,subtype,eventcount,opendate,closedate,casenotes);
+            Case aCase = new Case(person,tribe,type,subtype,opendate,closedate,casenotes);
             aCase.set_id(id);
             caseViewModel.update(aCase);
             Toast.makeText(this, "Case updated", Toast.LENGTH_SHORT).show();
