@@ -73,7 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddEditCaseActivity.EXTRA_ID, aCase.get_id());
                 intent.putExtra(AddEditCaseActivity.EXTRA_PERSON, aCase.getPerson());
                 intent.putExtra(AddEditCaseActivity.EXTRA_TRIBE, aCase.getTribe());
+                intent.putExtra(AddEditCaseActivity.EXTRA_TYPE, aCase.getType());
+                intent.putExtra(AddEditCaseActivity.EXTRA_SUBTYPE, aCase.getSubtype());
                 intent.putExtra(AddEditCaseActivity.EXTRA_OPENDATE, aCase.getOpenDate());
+                intent.putExtra(AddEditCaseActivity.EXTRA_CLOSEDATE,aCase.getCloseDate());
                 intent.putExtra(AddEditCaseActivity.EXTRA_CASENOTES, aCase.getCaseNotes());
                 startActivityForResult(intent, EDIT_CASE_REQUEST);
             }
@@ -96,12 +99,12 @@ public class MainActivity extends AppCompatActivity {
             Case aCase = new Case(person,tribe,type,subtype,opendate,closedate,casenotes);
             caseViewModel.insert(aCase);
 
-            Toast.makeText(this,"Case saved",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Case Saved",Toast.LENGTH_LONG).show();
         }else if(requestCode == EDIT_CASE_REQUEST && resultCode == RESULT_OK) {
             long id = data.getLongExtra(AddEditCaseActivity.EXTRA_ID, -1);
 
             if(id == -1){
-                Toast.makeText(this, "Case can't be updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Case can't be updated.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -116,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
             Case aCase = new Case(person,tribe,type,subtype,opendate,closedate,casenotes);
             aCase.set_id(id);
             caseViewModel.update(aCase);
-            Toast.makeText(this, "Case updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Case Updated", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this,"Case not Saved",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Case Not Saved",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete_all_cases:
                 caseViewModel.deleteAllCases();
-                Toast.makeText(this, "All cases deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "All Cases Deleted", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
