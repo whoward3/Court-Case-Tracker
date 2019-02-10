@@ -21,9 +21,9 @@ public interface CaseDao {
     @Delete
     void delete(Case aCase);
 
-    @Query("DELETE FROM `Case`")
+    @Query("DELETE FROM `case_table`")
     void deleteAllExpenses();
 
-    @Query("SELECT * FROM `Case`")
-    LiveData<List<Case>> getAllExpenses();
+    @Query("SELECT * FROM `case_table`")
+    LiveData<List<Case>> getAllCases();
 }

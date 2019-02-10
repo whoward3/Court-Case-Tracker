@@ -14,7 +14,7 @@ public class CaseViewModel extends AndroidViewModel {
     public CaseViewModel(@NonNull Application application) {
         super(application);
         repository = new CaseRepository(application);
-        allExpences = repository.getAllExpences();
+        allExpences = repository.getAllCases();
     }
 
     public void insert(Case aCase){
@@ -30,7 +30,7 @@ public class CaseViewModel extends AndroidViewModel {
     }
 
     public void deleteAllExpences(){
-        repository.deleteAllExpences();
+        repository.deleteAllCases();
     }
 
     public LiveData<List<Case>> getAllCases(){

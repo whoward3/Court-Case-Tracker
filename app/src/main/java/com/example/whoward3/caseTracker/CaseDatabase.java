@@ -13,12 +13,12 @@ public abstract class CaseDatabase extends RoomDatabase {
 
     private static CaseDatabase instance;
 
-    public abstract CaseDao expenseDao();
+    public abstract CaseDao caseDao();
 
     public static synchronized CaseDatabase getInstance (Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    CaseDatabase.class,"expense_database")
+                    CaseDatabase.class,"case_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -37,9 +37,8 @@ public abstract class CaseDatabase extends RoomDatabase {
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void>{
     private CaseDao caseDao;
     private PopulateDbAsyncTask(CaseDatabase db){
-        caseDao = db.expenseDao();
+        caseDao = db.caseDao();
     }
-
         @Override
         protected Void doInBackground(Void... voids){
             return null;
