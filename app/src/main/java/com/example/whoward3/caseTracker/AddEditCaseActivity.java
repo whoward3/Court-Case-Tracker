@@ -73,7 +73,7 @@ public class AddEditCaseActivity extends AppCompatActivity {
         String note = editTextCaseNotes.getText().toString();
 
         if(person.trim().isEmpty() || openDate.trim().isEmpty()){
-            Toast.makeText(this,"All cases must have a person and an openDate",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"All cases must have a person and a case open date!",Toast.LENGTH_LONG).show();
             return;
         }
 

@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             Case aCase = new Case(person,tribe,type,subtype,eventcount,opendate,closedate,casenotes);
             caseViewModel.insert(aCase);
 
-            Toast.makeText(this,"Case Saved",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Case saved",Toast.LENGTH_LONG).show();
         }else if(requestCode == EDIT_CASE_REQUEST && resultCode == RESULT_OK) {
             long id = data.getLongExtra(AddEditCaseActivity.EXTRA_ID, -1);
 
@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_all_cases:
-                caseViewModel.deleteAllExpences();
-                Toast.makeText(this, "All expenses deleted", Toast.LENGTH_SHORT).show();
+                caseViewModel.deleteAllCases();
+                Toast.makeText(this, "All cases deleted", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
